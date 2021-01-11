@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './influ-table.component.html',
   styleUrls: ['./influ-table.component.css']
 })
-export class HeroFormComponent {
+export class InfluTableComponent {
 
   bezig = "prrrt";
 

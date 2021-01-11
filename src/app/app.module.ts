@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HeroFormComponent } from './influ-table/influ-table.component';
+import { InfluTableComponent } from './influ-table/influ-table.component';
 
 @NgModule({
   imports: [
@@ -12,7 +12,7 @@ import { HeroFormComponent } from './influ-table/influ-table.component';
   ],
   declarations: [
     AppComponent,
-    HeroFormComponent
+    InfluTableComponent
   ],
   providers: [],
   bootstrap: [ AppComponent ]
