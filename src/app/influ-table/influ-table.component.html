@@ -40,15 +40,36 @@
 
             <tr *ngFor="let number of dummyArray; let i=index">
               <th scope="row">{{i + 1}}</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+              <td>{{getTheCorrectDingetje(i)}}</td>
+              <td>{{getTheCorrectDingetje(i)}}</td>
+              <td>{{getTheCorrectDingetje(i)}}</td>
             </tr>
 
           </tbody>
         </table>
       </div>
       <div class="col-3">
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+          <div formArrayName="aliases">
+            <h3>Aliases</h3> <button (click)="addAlias()">Add Alias</button>
+
+            <div *ngFor="let alias of aliases.controls; let i=index">
+              <!-- The repeated alias template -->
+              <label>
+                Alias:
+                <input type="text" [formControlName]="i">
+              </label>
+            </div>
+          </div>
+        </form>
+
+        <hr>
+
+        <p>
+          Form Value: {{ profileForm.value | json }}
+        </p>
+
 
       </div>
     </div>
