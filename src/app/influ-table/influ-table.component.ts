@@ -47,18 +47,14 @@ export class InfluTableComponent {
   addAlias() {
     this.aliases.push(this.fb.control(''));
 
-    //var eije = this.getZzz();
+    var hmm = this.getZzz();
 
-    //alert(this.profileForm.get('aliases').at(0).value);
+    alert(hmm.at(0).value);
   }
 
-  getTheCorrectDingetje(index) {
-    return this.profileForm.get('aliases').at(index).value;
-  }
-
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.profileForm.value);
+  getThaDingetjuh(index) {
+    var hmm = this.profileForm.get('aliases') as FormArray;
+    return hmm.at(index).value;
   }
 
 }

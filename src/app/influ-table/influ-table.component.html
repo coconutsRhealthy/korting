@@ -40,16 +40,16 @@
 
             <tr *ngFor="let number of dummyArray; let i=index">
               <th scope="row">{{i + 1}}</th>
-              <td>{{getTheCorrectDingetje(i)}}</td>
-              <td>{{getTheCorrectDingetje(i)}}</td>
-              <td>{{getTheCorrectDingetje(i)}}</td>
+              <td>{{getThaDingetjuh(i)}}</td>
+              <td>{{getThaDingetjuh(i)}}</td>
+              <td>{{getThaDingetjuh(i)}}</td>
             </tr>
 
           </tbody>
         </table>
       </div>
       <div class="col-3">
-        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="profileForm">
 
           <div formArrayName="aliases">
             <h3>Aliases</h3> <button (click)="addAlias()">Add Alias</button>
