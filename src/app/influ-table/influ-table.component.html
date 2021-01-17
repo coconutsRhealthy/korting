@@ -1,13 +1,58 @@
-<div class="container">
-    <h1>Testje</h1>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-3">
+        <h1>Testje</h1>
 
-      <div>
-        <input type="text" [(ngModel)]="bezig">
+        <!--<div>-->
+        <!---->
+        <!--</div>-->
+
+        <div>
+          {{bezig}}
+        </div>
+
+        <button type="button" (click)="testje()" class="btn btn-primary btn-sm">Add row</button>
+
+
+        <div class="row" *ngFor="let number of dummyArray; let i=index">
+          <div class="col-4">
+            <input type="text" [(ngModel)]="bezig">
+          </div>
+          <div class="col-4">
+            <input type="text" [(ngModel)]="bezig">
+          </div>
+          <div class="col-4">
+            <input type="text" [(ngModel)]="bezig">
+          </div>
+        </div>
       </div>
+      <div class="col-6">
+        <table class="table table-dark">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Je krijgt korting bij</th>
+              <th scope="col">Met code</th>
+              <th scope="col">Via influencer</th>
+            </tr>
+          </thead>
+          <tbody>
 
+            <tr *ngFor="let number of dummyArray; let i=index">
+              <th scope="row">{{i + 1}}</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
 
-      <div>
-        {{bezig}}
+          </tbody>
+        </table>
       </div>
+      <div class="col-3">
+
+      </div>
+    </div>
+
+
 
 </div>

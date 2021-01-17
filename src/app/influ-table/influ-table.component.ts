@@ -9,5 +9,11 @@ export class InfluTableComponent {
 
   bezig = "prrrt";
 
+  dummyArray = Array(1).fill(4);
+
+  testje() { 
+    this.dummyArray.push("4");
+  }
+
 
 }
