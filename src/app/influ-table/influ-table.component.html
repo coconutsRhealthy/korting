@@ -51,13 +51,25 @@
       <div class="col-3">
         <form [formGroup]="profileForm">
 
-          <div formArrayName="aliases">
-            <h3>Aliases</h3> <button (click)="addAlias()">Add Alias</button>
+          <div formArrayName="aliasesr">
+            <h3>Aliasesr</h3> <button (click)="addAlias()">Add Alias</button>
 
-            <div *ngFor="let alias of aliases.controls; let i=index">
+            <div *ngFor="let alias of aliasesr.controls; let i=index">
               <!-- The repeated alias template -->
               <label>
                 Alias:
+                <input type="text" [formControlName]="i">
+              </label>
+            </div>
+          </div>
+
+          <div formArrayName="beasts">
+            <h3>Beasts</h3> <button (click)="addBeast()">Add Beast</button>
+
+            <div *ngFor="let beast of beasts.controls; let i=index">
+              <!-- The repeated alias template -->
+              <label>
+                Beast:
                 <input type="text" [formControlName]="i">
               </label>
             </div>

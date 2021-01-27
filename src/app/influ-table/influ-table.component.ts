@@ -19,17 +19,24 @@ export class InfluTableComponent {
     }
 
   profileForm = this.fb.group({
-    aliases: this.fb.array([
+    aliasesr: this.fb.array([
       this.fb.control('')
-    ])
+    ]),
+    beasts: this.fb.array([
+      this.fb.control('')
+    ]),
   });
 
-  get aliases() {
-    return this.profileForm.get('aliases') as FormArray;
+  get aliasesr() {
+    return this.profileForm.get('aliasesr') as FormArray;
+  }
+
+  get beasts() {
+    return this.profileForm.get('beasts') as FormArray;
   }
 
   getZzz() {
-    return this.profileForm.get('aliases') as FormArray;
+    return this.profileForm.get('aliasesr') as FormArray;
   }
 
   constructor(private fb: FormBuilder) { }
@@ -45,15 +52,23 @@ export class InfluTableComponent {
   }
 
   addAlias() {
-    this.aliases.push(this.fb.control(''));
+    this.aliasesr.push(this.fb.control(''));
 
     var hmm = this.getZzz();
 
     alert(hmm.at(0).value);
   }
 
+  addBeast() {
+    this.beasts.push(this.fb.control(''));
+
+    //var hmm = this.getZzz();
+
+    //alert(hmm.at(0).value);
+  }
+
   getThaDingetjuh(index) {
-    var hmm = this.profileForm.get('aliases') as FormArray;
+    var hmm = this.profileForm.get('aliasesr') as FormArray;
     return hmm.at(index).value;
   }
 
