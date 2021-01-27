@@ -1,30 +1,39 @@
 <div class="container-fluid">
     <div class="row">
       <div class="col-3">
-        <h1>Testje</h1>
+        <button type="button" (click)="addAll()" class="btn btn-primary btn-sm">Add row</button>
 
-        <!--<div>-->
-        <!---->
-        <!--</div>-->
+        <form [formGroup]="profileForm">
+          <div class="row">
+            <div class="col-4">
+              <div formArrayName="discount_companies">
+                <p>companies</p>
 
-        <div>
-          {{bezig}}
-        </div>
+                <div *ngFor="let company of discount_companies.controls; let i=index">
+                  <input type="text" [formControlName]="i">
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div formArrayName="discount_codes">
+                <p>codes</p>
 
-        <button type="button" (click)="testje()" class="btn btn-primary btn-sm">Add row</button>
+                <div *ngFor="let code of discount_codes.controls; let i=index">
+                  <input type="text" [formControlName]="i">
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div formArrayName="influencers">
+                <p>influencers</p>
 
-
-        <div class="row" *ngFor="let number of dummyArray; let i=index">
-          <div class="col-4">
-            <input type="text" [(ngModel)]="bezig">
+                <div *ngFor="let code of influencers.controls; let i=index">
+                  <input type="text" [formControlName]="i">
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="col-4">
-            <input type="text" [(ngModel)]="bezig">
-          </div>
-          <div class="col-4">
-            <input type="text" [(ngModel)]="bezig">
-          </div>
-        </div>
+        </form>
       </div>
       <div class="col-6">
         <table class="table table-dark">
@@ -37,7 +46,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let number of dummyArray; let i=index">
+            <tr *ngFor="let company of discount_companies.controls; let i=index">
               <th scope="row">{{i + 1}}</th>
               <td>{{getDiscountCompany(i)}}</td>
               <td>{{getDiscountCode(i)}}</td>
@@ -47,43 +56,7 @@
         </table>
       </div>
       <div class="col-3">
-        <form [formGroup]="profileForm">
-
-          <div formArrayName="discount_companies">
-            <h3>Discount Companies</h3> <button (click)="addDiscountCompany()">Add discount company</button>
-
-            <div *ngFor="let company of discount_companies.controls; let i=index">
-              <input type="text" [formControlName]="i">
-            </div>
-          </div>
-
-          <div formArrayName="discount_codes">
-            <h3>Discount Codes</h3> <button (click)="addDiscountCode()">Add discount code</button>
-
-            <div *ngFor="let code of discount_codes.controls; let i=index">
-              <input type="text" [formControlName]="i">
-            </div>
-          </div>
-
-          <div formArrayName="influencers">
-            <h3>Influencers</h3> <button (click)="addInfluencer()">Add influencer</button>
-
-            <div *ngFor="let code of influencers.controls; let i=index">
-              <input type="text" [formControlName]="i">
-            </div>
-          </div>
-        </form>
-
-        <hr>
-
-        <p>
-          Form Value: {{ profileForm.value | json }}
-        </p>
-
-
       </div>
     </div>
-
-
 
 </div>

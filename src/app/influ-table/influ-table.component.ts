@@ -10,14 +10,6 @@ import { FormArray } from '@angular/forms';
 })
 export class InfluTableComponent {
 
-  bezig = "prrrt";
-
-  dummyArray = Array(1).fill(4);
-
-  testje() { 
-    this.dummyArray.push("4");
-  }
-
   profileForm = this.fb.group({
     discount_companies: this.fb.array([
       this.fb.control('')
@@ -53,6 +45,12 @@ export class InfluTableComponent {
   }
 
   addInfluencer() {
+    this.influencers.push(this.fb.control(''));
+  }
+
+  addAll() {
+    this.discount_companies.push(this.fb.control(''));
+    this.discount_codes.push(this.fb.control(''));
     this.influencers.push(this.fb.control(''));
   }
 
