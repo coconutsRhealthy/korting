@@ -37,41 +37,39 @@
             </tr>
           </thead>
           <tbody>
-
             <tr *ngFor="let number of dummyArray; let i=index">
               <th scope="row">{{i + 1}}</th>
-              <td>{{getThaDingetjuh(i)}}</td>
-              <td>{{getThaDingetjuh(i)}}</td>
-              <td>{{getThaDingetjuh(i)}}</td>
+              <td>{{getDiscountCompany(i)}}</td>
+              <td>{{getDiscountCode(i)}}</td>
+              <td>{{getInfluencer(i)}}</td>
             </tr>
-
           </tbody>
         </table>
       </div>
       <div class="col-3">
         <form [formGroup]="profileForm">
 
-          <div formArrayName="aliasesr">
-            <h3>Aliasesr</h3> <button (click)="addAlias()">Add Alias</button>
+          <div formArrayName="discount_companies">
+            <h3>Discount Companies</h3> <button (click)="addDiscountCompany()">Add discount company</button>
 
-            <div *ngFor="let alias of aliasesr.controls; let i=index">
-              <!-- The repeated alias template -->
-              <label>
-                Alias:
-                <input type="text" [formControlName]="i">
-              </label>
+            <div *ngFor="let company of discount_companies.controls; let i=index">
+              <input type="text" [formControlName]="i">
             </div>
           </div>
 
-          <div formArrayName="beasts">
-            <h3>Beasts</h3> <button (click)="addBeast()">Add Beast</button>
+          <div formArrayName="discount_codes">
+            <h3>Discount Codes</h3> <button (click)="addDiscountCode()">Add discount code</button>
 
-            <div *ngFor="let beast of beasts.controls; let i=index">
-              <!-- The repeated alias template -->
-              <label>
-                Beast:
-                <input type="text" [formControlName]="i">
-              </label>
+            <div *ngFor="let code of discount_codes.controls; let i=index">
+              <input type="text" [formControlName]="i">
+            </div>
+          </div>
+
+          <div formArrayName="influencers">
+            <h3>Influencers</h3> <button (click)="addInfluencer()">Add influencer</button>
+
+            <div *ngFor="let code of influencers.controls; let i=index">
+              <input type="text" [formControlName]="i">
             </div>
           </div>
         </form>

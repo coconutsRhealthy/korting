@@ -10,66 +10,64 @@ import { FormArray } from '@angular/forms';
 })
 export class InfluTableComponent {
 
-    bezig = "prrrt";
+  bezig = "prrrt";
 
-    dummyArray = Array(1).fill(4);
+  dummyArray = Array(1).fill(4);
 
-    testje() { 
-      this.dummyArray.push("4");
-    }
+  testje() { 
+    this.dummyArray.push("4");
+  }
 
   profileForm = this.fb.group({
-    aliasesr: this.fb.array([
+    discount_companies: this.fb.array([
       this.fb.control('')
     ]),
-    beasts: this.fb.array([
+    discount_codes: this.fb.array([
       this.fb.control('')
     ]),
+    influencers: this.fb.array([
+      this.fb.control('')
+    ])
   });
 
-  get aliasesr() {
-    return this.profileForm.get('aliasesr') as FormArray;
+  get discount_companies() {
+    return this.profileForm.get('discount_companies') as FormArray;
   }
 
-  get beasts() {
-    return this.profileForm.get('beasts') as FormArray;
+  get discount_codes() {
+    return this.profileForm.get('discount_codes') as FormArray;
   }
 
-  getZzz() {
-    return this.profileForm.get('aliasesr') as FormArray;
+  get influencers() {
+    return this.profileForm.get('influencers') as FormArray;
   }
 
   constructor(private fb: FormBuilder) { }
 
-
-  updateProfile() {
-    this.profileForm.patchValue({
-      firstName: 'Nancy',
-      address: {
-        street: '123 Drew Street'
-      }
-    });
+  addDiscountCompany() {
+    this.discount_companies.push(this.fb.control(''));
   }
 
-  addAlias() {
-    this.aliasesr.push(this.fb.control(''));
-
-    var hmm = this.getZzz();
-
-    alert(hmm.at(0).value);
+  addDiscountCode() {
+    this.discount_codes.push(this.fb.control(''));
   }
 
-  addBeast() {
-    this.beasts.push(this.fb.control(''));
-
-    //var hmm = this.getZzz();
-
-    //alert(hmm.at(0).value);
+  addInfluencer() {
+    this.influencers.push(this.fb.control(''));
   }
 
-  getThaDingetjuh(index) {
-    var hmm = this.profileForm.get('aliasesr') as FormArray;
-    return hmm.at(index).value;
+  getDiscountCompany(index) {
+    var formArray = this.profileForm.get('discount_companies') as FormArray;
+    return formArray.at(index).value;
   }
 
+  getDiscountCode(index) {
+    var formArray = this.profileForm.get('discount_codes') as FormArray;
+    return formArray.at(index).value;
+  }
+
+  getInfluencer(index) {
+    var formArray = this.profileForm.get('influencers') as FormArray;
+    return formArray.at(index).value;
+  }
 }
