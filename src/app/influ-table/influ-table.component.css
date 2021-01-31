@@ -2,3 +2,12 @@ input[type="text"]
 {
     font-size:8px;
 }
+
+table, th, td {
+  vertical-align: middle;
+}
+
+.smaller {
+  vertical-align: middle;
+  font-size:12px;
+}

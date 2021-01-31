@@ -34,19 +34,29 @@
             </div>
           </div>
         </form>
+
+        <button type="button" (click)="calculateTableStyle()" class="btn btn-primary btn-sm">Generate table</button>
       </div>
       <div class="col-6">
-        <table class="table table-dark">
+        <table class="table table-dark" [ngStyle]="{
+            'height.px' : tableHeight,
+            'width.px' : tableWidth,
+            'font-size.px' : tableFontSize
+            }">
           <thead>
             <tr>
-              <th scope="col">#</th>
+              <th class="smaller" scope="col">28 jan</th>
               <th scope="col">Je krijgt korting bij</th>
               <th scope="col">Met code</th>
               <th scope="col">Via influencer</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let company of discount_companies.controls; let i=index">
+            <tr *ngFor="let company of discount_companies.controls; let i=index" [ngStyle]="{
+              'height.px' : tableRowHeight,
+              'line-height.px' : tableRowLineHeight,
+              'min-height.px' : tableRowMinHeight
+              }">
               <th scope="row">{{i + 1}}</th>
               <td>{{getDiscountCompany(i)}}</td>
               <td>{{getDiscountCode(i)}}</td>

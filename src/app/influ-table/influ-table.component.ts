@@ -10,6 +10,13 @@ import { FormArray } from '@angular/forms';
 })
 export class InfluTableComponent {
 
+  tableHeight = 500;
+  tableWidth = 500;
+  tableFontSize = 18;
+  tableRowHeight = 30;
+  tableRowLineHeight = 30;
+  tableRowMinHeight = 30;
+
   profileForm = this.fb.group({
     discount_companies: this.fb.array([
       this.fb.control('')
@@ -67,5 +74,37 @@ export class InfluTableComponent {
   getInfluencer(index) {
     var formArray = this.profileForm.get('influencers') as FormArray;
     return formArray.at(index).value;
+  }
+
+  calculateTableStyle() {
+     //var numberOfRows = this.discount_companies.length;
+
+     this.tableHeight = 500;
+     this.tableWidth = 500;
+
+     this.tableRowHeight = 0.0004;
+     this.tableRowLineHeight = 0.0004;
+     this.tableRowMinHeight = 0.0004;
+
+
+    //this.tableRowHeight = 6;
+
+    //this.tableLineHeight = 40;
+
+    //alert(this.discount_companies.length);
+
+
+
+    //this.tableLineHeight = 300 / numberOfRows;
+
+    //alert(this.tableLineHeight);
+
+    //this.tableFontSize = 7;
+
+
+    //this.tableHeight = 300;
+    //this.tableWidth = 300;
+    //this.tableLineHeight = 60;
+    //this.tableFontSize = 28;
   }
 }
