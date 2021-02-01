@@ -107,4 +107,10 @@ export class InfluTableComponent {
     //this.tableLineHeight = 60;
     //this.tableFontSize = 28;
   }
+
+  deleteRow(index) {
+    this.discount_companies.removeAt(index);
+    this.discount_codes.removeAt(index);
+    this.influencers.removeAt(index);
+  }
 }

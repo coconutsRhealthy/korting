@@ -11,3 +11,19 @@ table, th, td {
   vertical-align: middle;
   font-size:12px;
 }
+
+.working-table-fill-in-field {
+  width: 100%;
+}
+
+.small-delete-button {
+  heigth: 8px;
+  width: 50px;
+  font-size:8px;
+}
+
+.table-outline {
+  height: 502px;
+  width: 502px;
+  border: 1px solid yellow;
+}
