@@ -16,6 +16,8 @@ export class InfluTableComponent {
   tableRowHeight = 30;
   tableRowLineHeight = 30;
   tableRowMinHeight = 30;
+  tableLineAndFontColor = "brown";
+  tableBackgroundColor = "green";
 
   profileForm = this.fb.group({
     discount_companies: this.fb.array([
@@ -152,5 +154,39 @@ export class InfluTableComponent {
         }
       }
     }
+  }
+
+  changeTableBackgroundColour() {
+    this.tableBackgroundColor = '#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
+    this.tableLineAndFontColor = this.invertColor(this.tableBackgroundColor);
+  }
+
+  getRandomHexColour() {
+    return '#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
+  }
+
+  invertColor(hex) {
+      if (hex.indexOf('#') === 0) {
+          hex = hex.slice(1);
+      }
+
+      if (hex.length === 3) {
+          hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+      }
+      if (hex.length !== 6) {
+          throw new Error('Invalid HEX color.');
+      }
+
+      var r = (255 - parseInt(hex.slice(0, 2), 16)).toString(16),
+          g = (255 - parseInt(hex.slice(2, 4), 16)).toString(16),
+          b = (255 - parseInt(hex.slice(4, 6), 16)).toString(16);
+
+      return '#' + this.padZero(r) + this.padZero(g) + this.padZero(b);
+  }
+
+  padZero(str) {
+      var len = 2;
+      var zeros = new Array(len).join('0');
+      return (zeros + str).slice(-len);
   }
 }

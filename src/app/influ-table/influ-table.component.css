@@ -12,6 +12,7 @@ table {
 }
 table tr {
   counter-increment: row-num;
+  border: yellow !important;
 }
 table tr td:first-child::before {
   content: counter(row-num);
