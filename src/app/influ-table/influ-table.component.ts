@@ -18,6 +18,10 @@ export class InfluTableComponent {
   tableRowMinHeight = 30;
   tableLineAndFontColor = "brown";
   tableBackgroundColor = "green";
+  kortingDate = "1 jan";
+  kortingDateFontSize = 10;
+  headerFontSize = 14;
+  bodyFontSize = 14;
 
   profileForm = this.fb.group({
     discount_companies: this.fb.array([

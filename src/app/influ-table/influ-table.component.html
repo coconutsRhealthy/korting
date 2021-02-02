@@ -38,8 +38,24 @@
           </div>
         </form>
 
-        <button type="button" (click)="calculateTableStyle()" class="btn btn-primary btn-sm">Generate table</button>
-        <button type="button" (click)="changeTableBackgroundColour()" class="btn btn-primary btn-sm">Change color</button>
+        <div>
+          <button type="button" (click)="calculateTableStyle()" class="btn btn-primary btn-sm">Generate table</button>
+        </div>
+        <div>
+          <button type="button" (click)="changeTableBackgroundColour()" class="btn btn-primary btn-sm">Change color</button>
+        </div>
+        <div>
+          date: <input type="text" [(ngModel)]="kortingDate">
+        </div>
+        <div>
+          date fontsize: <input type="text" [(ngModel)]="kortingDateFontSize">
+        </div>
+        <div>
+          header fontsize: <input type="text" [(ngModel)]="headerFontSize">
+        </div>
+        <div>
+          body fontsize:  <input type="text" [(ngModel)]="bodyFontSize">
+        </div>
       </div>
       <div class="col-6">
         <div class="table-outline">
@@ -52,10 +68,10 @@
             }">
             <thead>
               <tr>
-                <th [ngStyle]="{'border-color' : tableLineAndFontColor }" class="smaller" scope="col">28 jan</th>
-                <th [ngStyle]="{'border-color' : tableLineAndFontColor }" (click)="sortTable(1)" scope="col">Je krijgt korting bij</th>
-                <th [ngStyle]="{'border-color' : tableLineAndFontColor }" (click)="sortTable(2)" scope="col">Met code</th>
-                <th [ngStyle]="{'border-color' : tableLineAndFontColor }" (click)="sortTable(3)" scope="col">Via influencer</th>
+                <th [ngStyle]="{'border-color' : tableLineAndFontColor, 'font-size.px' : kortingDateFontSize }" class="smaller" scope="col">{{kortingDate}}</th>
+                <th [ngStyle]="{'border-color' : tableLineAndFontColor, 'font-size.px' : headerFontSize }" (click)="sortTable(1)" scope="col">Je krijgt korting bij</th>
+                <th [ngStyle]="{'border-color' : tableLineAndFontColor, 'font-size.px' : headerFontSize }" (click)="sortTable(2)" scope="col">Met code</th>
+                <th [ngStyle]="{'border-color' : tableLineAndFontColor, 'font-size.px' : headerFontSize }" (click)="sortTable(3)" scope="col">Via influencer</th>
               </tr>
             </thead>
             <tbody>
@@ -64,10 +80,10 @@
                 'line-height.px' : tableRowLineHeight,
                 'min-height.px' : tableRowMinHeight
                 }">
-                <td [ngStyle]="{'border-color' : tableLineAndFontColor }"></td>
-                <td [ngStyle]="{'border-color' : tableLineAndFontColor }">{{getDiscountCompany(i)}}</td>
-                <td [ngStyle]="{'border-color' : tableLineAndFontColor }">{{getDiscountCode(i)}}</td>
-                <td [ngStyle]="{'border-color' : tableLineAndFontColor }">{{getInfluencer(i)}}</td>
+                <td [ngStyle]="{'border-color' : tableLineAndFontColor, 'font-size.px' : bodyFontSize }"></td>
+                <td [ngStyle]="{'border-color' : tableLineAndFontColor, 'font-size.px' : bodyFontSize }">{{getDiscountCompany(i)}}</td>
+                <td [ngStyle]="{'border-color' : tableLineAndFontColor, 'font-size.px' : bodyFontSize }">{{getDiscountCode(i)}}</td>
+                <td [ngStyle]="{'border-color' : tableLineAndFontColor, 'font-size.px' : bodyFontSize }">{{getInfluencer(i)}}</td>
               </tr>
             </tbody>
           </table>
