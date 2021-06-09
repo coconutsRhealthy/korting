@@ -36,5 +36,5 @@ table tr td:first-child::before {
 .table-outline {
   height: 502px;
   width: 502px;
-  border: 1px solid yellow;
+  border: 1px solid blue;
 }

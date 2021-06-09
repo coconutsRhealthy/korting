@@ -160,6 +160,17 @@ export class InfluTableComponent {
     }
   }
 
+  makeTableBlackYellow(backGroundColour) {
+    if(backGroundColour === 'black') {
+      this.tableBackgroundColor = '#000000';
+      this.tableLineAndFontColor = '#FFFF00';
+    } else if(backGroundColour === 'yellow') {
+      this.tableBackgroundColor = '#FFFF00';
+      //this.tableBackgroundColor = '#FFA500';
+      this.tableLineAndFontColor = '#000000';
+    }
+  }
+
   changeTableBackgroundColour() {
     this.tableBackgroundColor = '#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
     this.tableLineAndFontColor = this.invertColor(this.tableBackgroundColor);
