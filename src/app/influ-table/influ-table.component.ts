@@ -176,6 +176,25 @@ export class InfluTableComponent {
     this.tableLineAndFontColor = this.invertColor(this.tableBackgroundColor);
   }
 
+  printData() {
+    var influencers = this.profileForm.get('influencers') as FormArray;
+    var companies = this.profileForm.get('discount_companies') as FormArray;
+    var codes = this.profileForm.get('discount_codes') as FormArray;
+
+    var toPrint = "";
+
+    for (var i = 0; i < influencers.length; i++) {
+      toPrint = toPrint + "{\n" +
+                        "\"company\": \"" + companies.at(i).value + "\",\n" +
+                        "\"code\": \"" + codes.at(i).value + "\",\n" +
+                        "\"via\": \"" + influencers.at(i).value + "\",\n" +
+                        "\"date\": \"2019-09-13\",\n" +
+                        "},\n";
+    }
+
+    console.log(toPrint);
+  }
+
   getRandomHexColour() {
     return '#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
   }
